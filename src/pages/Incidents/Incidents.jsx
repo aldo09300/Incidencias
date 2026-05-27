@@ -1,10 +1,11 @@
 import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
-import { useIncidents } from '../hooks/useIncidents'
-import IncidentCard from '../components/IncidentCard'
-import Loader from '../components/Loader'
-import { ESTADOS_LIST, TIPOS_INCIDENTE } from '../utils/constants'
+import { useAuth } from '../../context/AuthContext'
+import { useIncidents } from '../../hooks/useIncidents'
+import IncidentCard from '../../components/IncidentCard/IncidentCard'
+import Loader from '../../components/Loader/Loader'
+import { ESTADOS_LIST, TIPOS_INCIDENTE } from '../../utils/constants'
+import './Incidents.css'
 
 function Incidents() {
   const { user, isAdmin } = useAuth()
@@ -32,35 +33,35 @@ function Incidents() {
   }, [incidentes, filterEstado, filterTipo, search])
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6 md:py-8">
-      <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
+    <div className="incidents-container">
+      <div className="incidents-header">
         <div>
           <h1>{isAdmin ? 'Todos los incidentes' : 'Mis incidentes'}</h1>
-          <p className="text-sm text-gray-600 mt-1">
+          <p className="incidents-subtitle">
             {filtered.length} {filtered.length === 1 ? 'resultado' : 'resultados'}
           </p>
         </div>
-        <Link to="/nuevo" className="btn-primary">
+        <Link to="/nuevo" className="incidents-btn-new">
           + Nuevo
         </Link>
       </div>
 
-      <div className="card mb-6 space-y-4">
-        <div>
-          <label className="label-field">Buscar</label>
+      <div className="filter-card">
+        <div className="filter-group">
+          <label className="filter-label">Buscar</label>
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Busca por descripción, ubicación o reportante..."
-            className="input-field"
+            className="filter-input"
           />
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="filter-grid">
           <div>
-            <label className="label-field">Estado</label>
-            <div className="flex flex-wrap gap-2">
+            <label className="filter-label">Estado</label>
+            <div className="chips-container">
               <FilterChip active={filterEstado === 'todos'} onClick={() => setFilterEstado('todos')}>
                 Todos
               </FilterChip>
@@ -78,11 +79,11 @@ function Incidents() {
           </div>
 
           <div>
-            <label className="label-field">Tipo</label>
+            <label className="filter-label">Tipo</label>
             <select
               value={filterTipo}
               onChange={(e) => setFilterTipo(e.target.value)}
-              className="input-field"
+              className="filter-input"
             >
               <option value="todos">Todos los tipos</option>
               {TIPOS_INCIDENTE.map(t => (
@@ -96,13 +97,13 @@ function Incidents() {
       {loading ? (
         <Loader />
       ) : filtered.length === 0 ? (
-        <div className="card text-center py-12">
-          <div className="text-5xl mb-3">🔍</div>
-          <h3 className="mb-2">No se encontraron incidentes</h3>
-          <p className="text-gray-500 text-sm">Prueba con otros filtros.</p>
+        <div className="no-results-card">
+          <div className="no-results-icon">🔍</div>
+          <h3 className="no-results-title">No se encontraron incidentes</h3>
+          <p className="no-results-text">Prueba con otros filtros.</p>
         </div>
       ) : (
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="incidents-grid">
           {filtered.map(inc => <IncidentCard key={inc.id} incidente={inc} />)}
         </div>
       )}
@@ -111,20 +112,19 @@ function Incidents() {
 }
 
 function FilterChip({ active, onClick, children, color }) {
-  const colorStyles = {
-    amber: 'bg-amber-500 border-amber-500 text-white',
-    blue:  'bg-blue-500  border-blue-500  text-white',
-    green: 'bg-green-500 border-green-500 text-white',
+  let chipClass = 'filter-chip'
+  if (active) {
+    chipClass += ' active'
+    if (color) {
+      chipClass += ` ${color}`
+    }
   }
+
   return (
     <button
       type="button"
       onClick={onClick}
-      className={`px-3 py-1.5 rounded-full text-sm font-medium border-2 transition-colors ${
-        active
-          ? (color ? colorStyles[color] : 'bg-udla-500 border-udla-500 text-white')
-          : 'bg-white border-gray-200 text-gray-700 hover:border-gray-300'
-      }`}
+      className={chipClass}
     >
       {children}
     </button>

@@ -1,8 +1,9 @@
 import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../context/AuthContext'
-import { crearIncidente } from '../hooks/useIncidents'
-import { TIPOS_INCIDENTE } from '../utils/constants'
+import { useAuth } from '../../context/AuthContext'
+import { crearIncidente } from '../../hooks/useIncidents'
+import { TIPOS_INCIDENTE } from '../../utils/constants'
+import './NewIncident.css'
 
 function NewIncident() {
   const { user, profile } = useAuth()
@@ -85,72 +86,68 @@ function NewIncident() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-6 md:py-8">
-      <div className="mb-6">
+    <div className="new-incident-container">
+      <div className="new-incident-header">
         <h1>Reportar incidente</h1>
-        <p className="text-gray-600 mt-1 text-sm">
+        <p className="new-incident-description">
           Llena el formulario para reportar un incidente en la universidad.
         </p>
       </div>
 
       {error && (
-        <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm">
+        <div className="error-banner">
           {error}
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="card space-y-5">
-        <div>
-          <label className="label-field">Tipo de incidente *</label>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+      <form onSubmit={handleSubmit} className="incident-form">
+        <div className="form-group">
+          <label className="form-label">Tipo de incidente *</label>
+          <div className="type-grid">
             {TIPOS_INCIDENTE.map(t => (
               <button
                 type="button"
                 key={t.value}
                 onClick={() => setTipo(t.value)}
-                className={`p-3 rounded-lg border-2 transition-all text-center ${
-                  tipo === t.value
-                    ? 'border-udla-500 bg-udla-50 text-udla-700'
-                    : 'border-gray-200 hover:border-gray-300 bg-white'
-                }`}
+                className={`type-button ${tipo === t.value ? 'active' : ''}`}
               >
-                <div className="text-2xl mb-1">{t.icon}</div>
-                <p className="text-xs font-semibold">{t.label}</p>
+                <div className="type-icon">{t.icon}</div>
+                <p className="type-label">{t.label}</p>
               </button>
             ))}
           </div>
         </div>
 
-        <div>
-          <label className="label-field">Descripción detallada *</label>
+        <div className="form-group">
+          <label className="form-label">Descripción detallada *</label>
           <textarea
             value={descripcion}
             onChange={(e) => setDescripcion(e.target.value)}
             rows={4}
             maxLength={500}
-            className="input-field resize-none"
+            className="form-textarea"
             placeholder="Describe el problema con el mayor detalle posible..."
           />
-          <p className="text-xs text-gray-400 mt-1 text-right">{descripcion.length}/500</p>
+          <p className="char-counter">{descripcion.length}/500</p>
         </div>
 
-        <div>
-          <label className="label-field">Fotografía *</label>
+        <div className="form-group">
+          <label className="form-label">Fotografía *</label>
           <input
             ref={fileInputRef}
             type="file"
             accept="image/*"
             capture="environment"
             onChange={handleFile}
-            className="hidden"
+            style={{ display: 'none' }}
           />
           {preview ? (
-            <div className="relative">
-              <img src={preview} alt="Vista previa" className="w-full max-h-72 object-cover rounded-lg" />
+            <div className="file-preview-container">
+              <img src={preview} alt="Vista previa" className="file-preview-img" />
               <button
                 type="button"
                 onClick={() => { setFile(null); setPreview(null); fileInputRef.current.value = '' }}
-                className="absolute top-2 right-2 bg-accent-500 text-white w-9 h-9 rounded-full font-bold shadow-lg"
+                className="file-remove-btn"
               >
                 ×
               </button>
@@ -159,49 +156,51 @@ function NewIncident() {
             <button
               type="button"
               onClick={() => fileInputRef.current.click()}
-              className="w-full py-10 border-2 border-dashed border-gray-300 rounded-lg hover:border-udla-500 hover:bg-udla-50 transition-colors"
+              className="file-upload-placeholder"
             >
-              <div className="text-5xl mb-2">📷</div>
-              <p className="font-semibold text-gray-700">Toca para tomar o subir foto</p>
-              <p className="text-xs text-gray-500 mt-1">JPG, PNG · Máx. 5MB</p>
+              <div className="file-upload-icon">📷</div>
+              <p className="file-upload-title">Toca para tomar o subir foto</p>
+              <p className="file-upload-subtitle">JPG, PNG · Máx. 5MB</p>
             </button>
           )}
         </div>
 
-        <div>
-          <label className="label-field">Ubicación *</label>
+        <div className="form-group">
+          <label className="form-label">Ubicación *</label>
           <input
             type="text"
             value={ubicacionTexto}
             onChange={(e) => setUbicacionTexto(e.target.value)}
-            className="input-field mb-2"
+            className="form-input"
+            style={{ marginBottom: '8px' }}
             placeholder="Ej. Bloque A, segundo piso, salón 203"
           />
           <button
             type="button"
             onClick={obtenerUbicacion}
             disabled={gpsLoading}
-            className="btn-secondary text-sm w-full sm:w-auto"
+            className="btn-secondary"
+            style={{ width: '100%', maxWidth: 'max-content' }}
           >
             {gpsLoading ? 'Obteniendo...' : '📍 Usar mi ubicación GPS (opcional)'}
           </button>
           {coords.lat && (
-            <p className="text-xs text-udla-600 mt-2 font-medium">
+            <p className="gps-info">
               ✓ GPS: {coords.lat.toFixed(5)}, {coords.lng.toFixed(5)}
             </p>
           )}
         </div>
 
-        <div className="pt-4 border-t border-gray-100 flex flex-col sm:flex-row gap-3">
+        <div className="form-actions">
           <button
             type="button"
             onClick={() => navigate(-1)}
-            className="btn-secondary sm:flex-1"
+            className="btn-secondary"
             disabled={loading}
           >
             Cancelar
           </button>
-          <button type="submit" disabled={loading} className="btn-primary sm:flex-1">
+          <button type="submit" disabled={loading} className="btn-primary">
             {loading ? 'Enviando...' : 'Enviar reporte'}
           </button>
         </div>

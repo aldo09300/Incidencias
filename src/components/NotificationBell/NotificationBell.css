@@ -1,0 +1,129 @@
+.notification-icon-btn {
+  color: #ffffff !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.notification-icon-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.notification-badge .MuiBadge-badge {
+  font-size: 0.625rem !important;
+  font-weight: 700 !important;
+  min-width: 18px !important;
+  height: 18px !important;
+}
+
+.notification-popover-paper {
+  border-radius: 12px !important;
+  margin-top: 8px !important;
+  overflow: hidden !important;
+}
+
+@media (min-width: 600px) {
+  .notification-popover-paper {
+    width: 384px !important;
+  }
+}
+@media (max-width: 599px) {
+  .notification-popover-paper {
+    width: 320px !important;
+  }
+}
+
+.notification-header {
+  padding: 12px;
+  border-bottom: 1px solid #f3f4f6;
+  background-color: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.notification-header-title {
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.notification-mark-all {
+  font-size: 0.75rem !important;
+  text-transform: none !important;
+  color: #003d25 !important;
+  font-weight: 500 !important;
+}
+
+.notification-list {
+  max-height: 384px;
+  overflow-y: auto;
+}
+
+.notification-empty {
+  text-align: center;
+  padding: 32px 0;
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.notification-item {
+  padding: 12px;
+  border-bottom: 1px solid #f3f4f6;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.notification-item.unread {
+  background-color: #e8f3ee;
+}
+
+.notification-item.read {
+  background-color: transparent;
+}
+
+.notification-item:hover {
+  background-color: #f9fafb;
+}
+
+.notification-item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.notification-item-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.notification-item-title {
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.notification-item-message {
+  color: #4b5563;
+  margin-top: 2px;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+}
+
+.notification-item-date {
+  color: #9ca3af;
+  margin-top: 4px;
+  display: block;
+  font-size: 0.75rem;
+}
+
+.notification-item-delete {
+  color: #9ca3af !important;
+  transition: color 0.2s ease !important;
+}
+
+.notification-item-delete:hover {
+  color: #c1272d !important;
+}

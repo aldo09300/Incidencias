@@ -1,27 +1,28 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import ProtectedRoute from './components/ProtectedRoute'
+import Box from '@mui/material/Box'
+import Navbar from './components/Navbar/Navbar'
+import Footer from './components/Footer/Footer'
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
-import Landing from './pages/Landing'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import Dashboard from './pages/Dashboard'
-import NewIncident from './pages/NewIncident'
-import Incidents from './pages/Incidents'
-import IncidentDetail from './pages/IncidentDetail'
-import Statistics from './pages/Statistics'
-import AdminPanel from './pages/AdminPanel'
-import NotFound from './pages/NotFound'
+import Landing from './pages/Landing/Landing'
+import Login from './pages/Login/Login'
+import Register from './pages/Register/Register'
+import Dashboard from './pages/Dashboard/Dashboard'
+import NewIncident from './pages/NewIncident/NewIncident'
+import Incidents from './pages/Incidents/Incidents'
+import IncidentDetail from './pages/IncidentDetail/IncidentDetail'
+import Statistics from './pages/Statistics/Statistics'
+import AdminPanel from './pages/AdminPanel/AdminPanel'
+import NotFound from './pages/NotFound/NotFound'
 
 function AppShell({ children }) {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', bgcolor: 'background.default' }}>
       <Navbar />
-      <main className="flex-1">{children}</main>
+      <Box component="main" sx={{ flex: 1 }}>{children}</Box>
       <Footer />
-    </div>
+    </Box>
   )
 }
 

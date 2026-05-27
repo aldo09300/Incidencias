@@ -1,0 +1,442 @@
+/* ═══════════════════════════════════════════════════
+   LANDING PAGE — Split layout dark/green
+   Mirrors Login aesthetics. Colors from theme.js:
+     primary:  #00693e  light: #3a8e63  deep: #001e12
+   ═══════════════════════════════════════════════════ */
+
+/* Root: full viewport, two columns */
+.lnd-root {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ── LEFT PANEL ─────────────────────────────────── */
+.lnd-left {
+  flex: 1;
+  background: linear-gradient(155deg, #001e12 0%, #003d25 50%, #00693e 100%);
+  display: flex;
+  flex-direction: column;
+  padding: 40px 52px;
+  position: relative;
+  overflow: hidden;
+  gap: 28px;
+}
+
+/* Decorative blurred circles */
+.lnd-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.lnd-circle-1 {
+  width: 500px;
+  height: 500px;
+  top: -180px;
+  right: -180px;
+  background: radial-gradient(circle, rgba(0,105,62,0.18) 0%, transparent 70%);
+}
+
+.lnd-circle-2 {
+  width: 350px;
+  height: 350px;
+  bottom: -100px;
+  left: -80px;
+  background: radial-gradient(circle, rgba(58,142,99,0.12) 0%, transparent 70%);
+}
+
+/* ── Top: Brand + Badge */
+.lnd-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.lnd-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lnd-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 5px;
+  object-fit: contain;
+}
+
+.lnd-brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.lnd-brand-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.lnd-brand-place {
+  font-size: 0.72rem;
+  color: rgba(157, 204, 176, 0.6);
+  letter-spacing: 0.04em;
+}
+
+.lnd-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 105, 62, 0.3);
+  border: 1px solid rgba(58, 142, 99, 0.35);
+  color: #9dccb0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 100px;
+}
+
+.lnd-badge-icon {
+  font-size: 0.9rem !important;
+  color: #3a8e63;
+}
+
+/* ── Hero text */
+.lnd-hero {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lnd-tagline {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #3a8e63;
+  margin: 0 0 12px 0;
+}
+
+.lnd-title {
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin: 0 0 20px 0;
+}
+
+.lnd-subtitle {
+  font-size: 0.93rem;
+  color: rgba(197, 224, 208, 0.75);
+  line-height: 1.75;
+  margin: 0;
+  max-width: 440px;
+}
+
+/* ── Incident type chips */
+.lnd-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.lnd-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(0, 105, 62, 0.2);
+  border: 1px solid rgba(58, 142, 99, 0.3);
+  color: #c5e0d0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 100px;
+  transition: background 0.2s;
+}
+
+.lnd-chip:hover {
+  background: rgba(0, 105, 62, 0.35);
+}
+
+.lnd-chip-icon {
+  display: flex;
+  align-items: center;
+  color: #3a8e63;
+  font-size: 0 !important; /* let svg inherit */
+}
+
+.lnd-chip-icon svg {
+  font-size: 1rem;
+}
+
+/* ── Stats */
+.lnd-stats {
+  display: flex;
+  gap: 36px;
+  position: relative;
+  z-index: 1;
+}
+
+.lnd-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.lnd-stat-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.lnd-stat-label {
+  font-size: 0.7rem;
+  color: rgba(157, 204, 176, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+/* ── Footer text */
+.lnd-footer {
+  font-size: 0.72rem;
+  color: rgba(157, 204, 176, 0.4);
+  letter-spacing: 0.06em;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── RIGHT PANEL ─────────────────────────────── */
+.lnd-right {
+  width: 480px;
+  min-width: 360px;
+  background: #0d1f16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 36px;
+}
+
+.lnd-card {
+  width: 100%;
+  max-width: 390px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Card header */
+.lnd-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lnd-card-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.lnd-card-subtitle {
+  font-size: 0.87rem;
+  color: rgba(157, 204, 176, 0.6);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Feature list */
+.lnd-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.lnd-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  background: rgba(0, 105, 62, 0.07);
+  border: 1px solid rgba(58, 142, 99, 0.18);
+  border-radius: 10px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.lnd-feature:hover {
+  background: rgba(0, 105, 62, 0.13);
+  border-color: rgba(58, 142, 99, 0.3);
+}
+
+.lnd-feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 8px;
+  background: rgba(0, 105, 62, 0.25);
+  color: #3a8e63;
+}
+
+.lnd-feature-icon svg {
+  font-size: 1.2rem;
+}
+
+.lnd-feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.lnd-feature-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #e8f3ee;
+}
+
+.lnd-feature-desc {
+  font-size: 0.78rem;
+  color: rgba(157, 204, 176, 0.55);
+  line-height: 1.5;
+}
+
+/* Divider */
+.lnd-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lnd-divider-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(58, 142, 99, 0.2);
+}
+
+.lnd-divider-text {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(157, 204, 176, 0.4);
+}
+
+/* Action buttons */
+.lnd-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lnd-btn-primary {
+  background: linear-gradient(135deg, #00693e 0%, #3a8e63 100%) !important;
+  color: #ffffff !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  padding: 14px 24px !important;
+  border-radius: 8px !important;
+  letter-spacing: 0.02em !important;
+  box-shadow: 0 4px 24px rgba(0, 105, 62, 0.35) !important;
+  text-transform: none !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+  justify-content: space-between !important;
+}
+
+.lnd-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 32px rgba(0, 105, 62, 0.5) !important;
+}
+
+.lnd-btn-secondary {
+  background: rgba(0, 105, 62, 0.1) !important;
+  color: #9dccb0 !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  padding: 14px 24px !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(58, 142, 99, 0.3) !important;
+  text-transform: none !important;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+}
+
+.lnd-btn-secondary:hover {
+  background: rgba(0, 105, 62, 0.18) !important;
+  border-color: rgba(58, 142, 99, 0.5) !important;
+  color: #c5e0d0 !important;
+}
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media (max-width: 960px) {
+  .lnd-root {
+    flex-direction: column;
+  }
+
+  .lnd-left {
+    padding: 32px 28px;
+    gap: 20px;
+  }
+
+  .lnd-right {
+    width: 100%;
+    min-width: unset;
+    padding: 32px 24px 48px;
+  }
+
+  .lnd-hero {
+    flex: unset;
+  }
+
+  .lnd-stats {
+    gap: 20px;
+  }
+
+  .lnd-stat-value {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .lnd-left {
+    padding: 24px 20px;
+  }
+
+  .lnd-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .lnd-title {
+    font-size: 1.7rem;
+  }
+
+  .lnd-card {
+    max-width: 100%;
+  }
+
+  .lnd-stats {
+    gap: 14px;
+  }
+}

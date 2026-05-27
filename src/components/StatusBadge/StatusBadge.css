@@ -1,0 +1,47 @@
+.status-badge {
+  font-weight: 600 !important;
+  font-size: 0.75rem !important;
+  height: 24px !important;
+}
+
+.status-badge.amber {
+  background-color: #fef3c7 !important;
+  color: #92400e !important;
+  border: 1px solid rgba(245, 158, 11, 0.2) !important;
+}
+
+.status-badge.blue {
+  background-color: #dbeafe !important;
+  color: #1e40af !important;
+  border: 1px solid rgba(59, 130, 246, 0.2) !important;
+}
+
+.status-badge.green {
+  background-color: #d1fae5 !important;
+  color: #065f46 !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot.amber {
+  background-color: #f59e0b;
+}
+
+.status-dot.blue {
+  background-color: #3b82f6;
+}
+
+.status-dot.green {
+  background-color: #10b981;
+}
+
+.status-badge .MuiChip-icon {
+  margin-left: 8px !important;
+  margin-right: -4px !important;
+}

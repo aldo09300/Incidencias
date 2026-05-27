@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { doc, getDoc } from 'firebase/firestore'
-import { db } from '../firebase/config'
-import { useAuth } from '../context/AuthContext'
-import { useIncidents, cambiarEstado, eliminarIncidente, desagruparIncidente } from '../hooks/useIncidents'
-import StatusBadge from '../components/StatusBadge'
-import Loader from '../components/Loader'
-import { ESTADOS_LIST, getTipoLabel } from '../utils/constants'
-import { formatDate } from '../utils/helpers'
+import { db } from '../../firebase/config'
+import { useAuth } from '../../context/AuthContext'
+import { useIncidents, cambiarEstado, eliminarIncidente, desagruparIncidente } from '../../hooks/useIncidents'
+import StatusBadge from '../../components/StatusBadge/StatusBadge'
+import Loader from '../../components/Loader/Loader'
+import { ESTADOS_LIST, getTipoLabel } from '../../utils/constants'
+import { formatDate } from '../../utils/helpers'
+import './IncidentDetail.css'
 
 function IncidentDetail() {
   const { id } = useParams()
@@ -40,9 +41,9 @@ function IncidentDetail() {
   if (loading) return <Loader fullScreen />
   if (!incidente) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-12 text-center">
+      <div className="detail-container" style={{ textAlign: 'center', paddingTop: '48px' }}>
         <h2>Incidente no encontrado</h2>
-        <Link to="/incidentes" className="btn-primary mt-4 inline-flex">Volver</Link>
+        <Link to="/incidentes" className="btn-primary" style={{ marginTop: '16px' }}>Volver</Link>
       </div>
     )
   }
@@ -81,27 +82,27 @@ function IncidentDetail() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-6 md:py-8">
-      <button onClick={() => navigate(-1)} className="btn-ghost mb-4">
+    <div className="detail-container">
+      <button onClick={() => navigate(-1)} className="btn-ghost">
         ← Volver
       </button>
 
-      <div className="card">
-        <div className="flex flex-wrap items-start justify-between gap-3 mb-5">
+      <div className="detail-card">
+        <div className="detail-header">
           <div>
-            <p className="text-sm font-semibold text-udla-600">
+            <p className="detail-header-type">
               {getTipoLabel(incidente.tipo)}
             </p>
-            <h2 className="mt-1">Reporte #{incidente.id.slice(0,8)}</h2>
+            <h2 className="detail-header-title">Reporte #{incidente.id.slice(0,8)}</h2>
           </div>
           <StatusBadge estado={incidente.estado} />
         </div>
 
-        <div className="rounded-xl overflow-hidden bg-gray-100 mb-5">
-          <img src={incidente.imagenURL} alt={incidente.tipo} className="w-full max-h-96 object-contain" />
+        <div className="detail-image-container">
+          <img src={incidente.imagenURL} alt={incidente.tipo} className="detail-image" />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4 mb-5">
+        <div className="info-grid">
           <InfoItem label="Reportado por" value={incidente.usuarioNombre} />
           <InfoItem label="Fecha de reporte" value={formatDate(incidente.fechaCreacion)} />
           <InfoItem label="Última actualización" value={formatDate(incidente.fechaActualizacion)} />
@@ -113,7 +114,7 @@ function IncidentDetail() {
                 <a
                   href={`https://www.google.com/maps?q=${incidente.latitud},${incidente.longitud}`}
                   target="_blank" rel="noopener noreferrer"
-                  className="text-udla-600 hover:underline"
+                  className="info-item-link"
                 >
                   {incidente.latitud.toFixed(5)}, {incidente.longitud.toFixed(5)} ↗
                 </a>
@@ -124,56 +125,50 @@ function IncidentDetail() {
             <InfoItem
               label="Grupo"
               value={
-                <span className="inline-flex items-center gap-2">
-                  <span className="badge bg-purple-100 text-purple-700 border border-purple-200">
-                    {grupoSize} incidentes agrupados
-                  </span>
+                <span className="badge-purple">
+                  {grupoSize} incidentes agrupados
                 </span>
               }
             />
           )}
         </div>
 
-        <div className="border-t border-gray-100 pt-4">
-          <p className="label-field">Descripción</p>
-          <p className="text-gray-800 whitespace-pre-wrap">{incidente.descripcion}</p>
+        <div className="detail-section">
+          <p className="detail-label">Descripción</p>
+          <p className="detail-description">{incidente.descripcion}</p>
         </div>
 
         {puedeGestionar && (
-          <div className="mt-6 pt-5 border-t border-gray-100">
-            <p className="label-field mb-3">Cambiar estado</p>
-            <div className="flex flex-wrap gap-2">
+          <div className="admin-section">
+            <p className="admin-label">Cambiar estado</p>
+            <div className="state-buttons">
               {ESTADOS_LIST.map(e => (
                 <button
                   key={e.value}
                   onClick={() => handleChangeEstado(e.value)}
                   disabled={actionLoading || incidente.estado === e.value}
-                  className={`px-4 py-2 rounded-lg text-sm font-semibold border-2 transition-colors disabled:opacity-50 ${
-                    incidente.estado === e.value
-                      ? 'bg-udla-500 border-udla-500 text-white cursor-default'
-                      : 'bg-white border-gray-200 text-gray-700 hover:border-udla-500'
-                  }`}
+                  className={`state-btn ${incidente.estado === e.value ? 'active' : ''}`}
                 >
                   {e.label}
                 </button>
               ))}
             </div>
             {incidente.grupoId && (
-              <p className="text-xs text-gray-500 mt-2">
+              <p className="admin-warning">
                 ⚠ El cambio de estado se aplicará a los {grupoSize} incidentes del grupo.
               </p>
             )}
           </div>
         )}
 
-        <div className="mt-6 pt-5 border-t border-gray-100 flex flex-wrap gap-2 justify-end">
+        <div className="actions-footer">
           {incidente.grupoId && puedeGestionar && (
-            <button onClick={handleDesagrupar} disabled={actionLoading} className="btn-secondary text-sm">
+            <button onClick={handleDesagrupar} disabled={actionLoading} className="btn-secondary">
               Quitar del grupo
             </button>
           )}
           {puedeEliminar && (
-            <button onClick={handleEliminar} disabled={actionLoading} className="btn-accent text-sm">
+            <button onClick={handleEliminar} disabled={actionLoading} className="btn-accent">
               Eliminar incidente
             </button>
           )}
@@ -186,8 +181,8 @@ function IncidentDetail() {
 function InfoItem({ label, value }) {
   return (
     <div>
-      <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide">{label}</p>
-      <p className="text-gray-800 mt-0.5">{value || '—'}</p>
+      <p className="info-item-label">{label}</p>
+      <p className="info-item-value">{value || '—'}</p>
     </div>
   )
 }

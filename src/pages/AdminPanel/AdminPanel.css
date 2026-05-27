@@ -1,0 +1,108 @@
+.admin-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+@media (min-width: 768px) {
+  .admin-container {
+    padding: 32px 16px;
+  }
+}
+
+.admin-header {
+  margin-bottom: 24px;
+}
+
+.admin-subtitle {
+  color: #4b5563 !important;
+  margin-top: 4px !important;
+}
+
+.admin-paper {
+  margin-bottom: 16px !important;
+  padding: 16px !important;
+  border-radius: 12px !important;
+}
+
+.admin-action-bar {
+  background-color: #f0fdf4 !important;
+  border: 1px solid #bbf7d0 !important;
+  position: sticky;
+  top: 64px;
+  z-index: 30;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.admin-action-text {
+  font-weight: 600 !important;
+  color: #005232 !important;
+}
+
+.admin-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.admin-empty-state {
+  text-align: center;
+  padding: 48px 16px;
+  border-radius: 12px !important;
+}
+
+.admin-empty-icon {
+  font-size: 3rem !important;
+  margin-bottom: 12px !important;
+}
+
+.admin-table-container {
+  border-radius: 12px !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+.admin-row-selected {
+  background-color: #f0fdf4 !important;
+}
+
+.admin-row-hover:hover {
+  background-color: #f9fafb !important;
+}
+
+.admin-icon-grouped {
+  margin-left: 4px;
+  color: #a855f7;
+}
+
+.admin-desc-cell {
+  max-width: 250px;
+}
+
+.admin-desc-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-desc-location {
+  font-size: 0.75rem !important;
+  color: #6b7280 !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-link {
+  color: #00693e !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  font-size: 0.875rem !important;
+}
+
+.admin-link:hover {
+  color: #005232 !important;
+}

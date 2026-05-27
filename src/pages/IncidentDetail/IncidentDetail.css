@@ -1,0 +1,254 @@
+.detail-container {
+  max-width: 896px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+@media (min-width: 768px) {
+  .detail-container {
+    padding: 32px 16px;
+  }
+}
+
+.btn-ghost {
+  background: transparent;
+  border: none;
+  color: #4b5563;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  margin-bottom: 16px;
+}
+
+.btn-ghost:hover {
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+
+.detail-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.detail-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.detail-header-type {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #00693e;
+}
+
+.detail-header-title {
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.detail-image-container {
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #f3f4f6;
+  margin-bottom: 20px;
+}
+
+.detail-image {
+  width: 100%;
+  max-height: 384px;
+  object-fit: contain;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.info-item-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.info-item-value {
+  color: #1f2937;
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+
+.info-item-link {
+  color: #00693e;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.info-item-link:hover {
+  text-decoration: underline;
+}
+
+.badge-purple {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  background-color: #f3e8ff;
+  color: #6b21a8;
+  border: 1px solid #e9d5ff;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.detail-section {
+  border-top: 1px solid #f3f4f6;
+  padding-top: 16px;
+}
+
+.detail-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.detail-description {
+  color: #1f2937;
+  white-space: pre-wrap;
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.admin-section {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.admin-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 12px;
+}
+
+.state-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.state-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 2px solid #e5e7eb;
+  background-color: #ffffff;
+  color: #4b5563;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.state-btn:hover:not(:disabled) {
+  border-color: #00693e;
+}
+
+.state-btn.active {
+  background-color: #00693e;
+  border-color: #00693e;
+  color: #ffffff;
+  cursor: default;
+}
+
+.state-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.admin-warning {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.actions-footer {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #f3f4f6;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.btn-secondary {
+  display: inline-block;
+  background-color: #f3f4f6;
+  color: #374151;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  text-align: center;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: #e5e7eb;
+  border-color: #c5c7cb;
+}
+
+.btn-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-accent {
+  display: inline-block;
+  background-color: #c1272d;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-accent:hover:not(:disabled) {
+  background-color: #a01f25;
+}
+
+.btn-accent:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
