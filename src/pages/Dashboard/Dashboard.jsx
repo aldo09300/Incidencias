@@ -66,16 +66,16 @@ function Dashboard() {
 
       <Grid container spacing={2} className="dashboard-stats-grid">
         <Grid xs={6} lg={3}>
-          <StatCard label="Total" value={stats.total} color="udla" icon="📊" />
+          <StatCard label="Total" value={stats.total} color="udla" icon="fa-solid fa-chart-bar" />
         </Grid>
         <Grid xs={6} lg={3}>
-          <StatCard label="Reportados" value={stats.reportado} color="amber" icon="🔔" />
+          <StatCard label="Reportados" value={stats.reportado} color="amber" icon="fa-solid fa-bell" />
         </Grid>
         <Grid xs={6} lg={3}>
-          <StatCard label="En proceso" value={stats.enProceso} color="blue" icon="🔧" />
+          <StatCard label="En proceso" value={stats.enProceso} color="blue" icon="fa-solid fa-wrench" />
         </Grid>
         <Grid xs={6} lg={3}>
-          <StatCard label="Resueltos" value={stats.resuelto} color="green" icon="✅" />
+          <StatCard label="Resueltos" value={stats.resuelto} color="green" icon="fa-solid fa-circle-check" />
         </Grid>
       </Grid>
 
@@ -84,7 +84,7 @@ function Dashboard() {
           {isAdmin ? 'Incidentes recientes' : 'Mis reportes recientes'}
         </Typography>
         <Typography component={Link} to="/incidentes" className="dashboard-link-all">
-          Ver todos →
+          Ver todos <i className="fa-solid fa-arrow-right" style={{ marginLeft: '4px' }}></i>
         </Typography>
       </Box>
 
@@ -105,9 +105,13 @@ function StatCard({ label, value, color, icon }) {
   const colorClass = `dashboard-stat-card-${color}`
   return (
     <Paper elevation={0} className={`dashboard-stat-card ${colorClass}`}>
-      <Typography className="dashboard-stat-icon">{icon}</Typography>
-      <Typography className="dashboard-stat-label">{label}</Typography>
-      <Typography className="dashboard-stat-value">{value}</Typography>
+      <div className="dashboard-stat-info">
+        <span className="dashboard-stat-value">{value}</span>
+        <span className="dashboard-stat-label">{label}</span>
+      </div>
+      <div className="dashboard-stat-icon-wrapper">
+        <i className={icon}></i>
+      </div>
     </Paper>
   )
 }
@@ -115,7 +119,7 @@ function StatCard({ label, value, color, icon }) {
 function EmptyState({ isAdmin }) {
   return (
     <Paper elevation={1} className="dashboard-empty-state">
-      <Typography className="dashboard-empty-icon">📭</Typography>
+      <Typography className="dashboard-empty-icon"><i className="fa-solid fa-inbox"></i></Typography>
       <Typography variant="h5" className="dashboard-empty-title">
         {isAdmin ? 'No hay incidentes reportados aún' : 'Aún no has reportado incidentes'}
       </Typography>

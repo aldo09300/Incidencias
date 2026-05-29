@@ -87,7 +87,7 @@ function Incidents() {
             >
               <option value="todos">Todos los tipos</option>
               {TIPOS_INCIDENTE.map(t => (
-                <option key={t.value} value={t.value}>{t.icon} {t.label}</option>
+                <option key={t.value} value={t.value}>{t.label}</option>
               ))}
             </select>
           </div>
@@ -98,7 +98,7 @@ function Incidents() {
         <Loader />
       ) : filtered.length === 0 ? (
         <div className="no-results-card">
-          <div className="no-results-icon">🔍</div>
+          <div className="no-results-icon"><i className="fa-solid fa-magnifying-glass"></i></div>
           <h3 className="no-results-title">No se encontraron incidentes</h3>
           <p className="no-results-text">Prueba con otros filtros.</p>
         </div>
