@@ -1,150 +1,262 @@
 .dashboard-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 24px 16px;
+  padding: 24px 16px 48px;
 }
 
 @media (min-width: 768px) {
   .dashboard-container {
-    padding: 32px 16px;
+    padding: 32px 16px 64px;
   }
 }
 
 .dashboard-hero {
-  background: linear-gradient(to right, #00693e, #005232);
-  border-radius: 16px;
-  padding: 24px;
+  background-image: url('../../assets/BannerUniversidad.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  padding: 32px;
   color: white;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  position: relative;
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
   .dashboard-hero {
-    padding: 32px;
+    padding: 48px 40px;
   }
 }
 
 .dashboard-date {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin-bottom: 4px !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  text-transform: capitalize;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 8px !important;
 }
 
 .dashboard-greeting {
   color: white !important;
   margin-top: 4px !important;
-  font-weight: 600 !important;
+  font-weight: 800 !important;
+  font-size: 2.25rem !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .dashboard-hero-subtitle {
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
   margin-top: 8px !important;
+  font-size: 1.05rem !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
 }
 
 .dashboard-actions {
-  margin-top: 20px;
+  margin-top: 24px;
   display: flex;
-  gap: 12px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
 .dashboard-btn-report {
   background-color: white !important;
   color: #005232 !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
+  border-radius: 12px !important;
+  padding: 10px 24px !important;
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.25) !important;
+  transition: all 0.2s ease !important;
+  text-transform: none !important;
 }
 
 .dashboard-btn-report:hover {
-  background-color: #f0fcf6 !important;
+  background-color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4) !important;
 }
 
 .dashboard-btn-all {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.15) !important;
   color: white !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  font-weight: 600 !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.4) !important;
+  font-weight: 700 !important;
+  border-radius: 12px !important;
+  padding: 10px 24px !important;
+  transition: all 0.2s ease !important;
+  text-transform: none !important;
+  backdrop-filter: blur(4px);
 }
 
 .dashboard-btn-all:hover {
-  background-color: rgba(255, 255, 255, 0.2) !important;
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  transform: translateY(-2px);
 }
 
 .dashboard-stats-grid {
-  margin-bottom: 32px !important;
+  margin-bottom: 36px !important;
 }
 
 .dashboard-stat-card {
-  border-radius: 12px !important;
-  padding: 16px;
+  border-radius: 16px !important;
+  padding: 20px 24px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  background-color: #ffffff !important;
+  border: 1px solid #f0f0f0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-stat-card:hover {
+  transform: translateY(-6px);
+  border-color: transparent !important;
+}
+
+.dashboard-stat-info {
   display: flex;
   flex-direction: column;
-}
-
-.dashboard-stat-card-udla {
-  background-color: #f0fdf4 !important;
-  border: 1px solid #bbf7d0 !important;
-}
-
-.dashboard-stat-card-amber {
-  background-color: #fffbeb !important;
-  border: 1px solid #fde68a !important;
-}
-
-.dashboard-stat-card-blue {
-  background-color: #eff6ff !important;
-  border: 1px solid #bfdbfe !important;
-}
-
-.dashboard-stat-card-green {
-  background-color: #f0fdf4 !important;
-  border: 1px solid #bbf7d0 !important;
-}
-
-.dashboard-stat-icon {
-  font-size: 1.5rem !important;
-  margin-bottom: 4px !important;
-}
-
-.dashboard-stat-label {
-  font-size: 0.75rem !important;
-  color: #4b5563 !important;
-  font-weight: 500 !important;
+  gap: 4px;
 }
 
 .dashboard-stat-value {
-  font-size: 1.5rem !important;
-  font-weight: 700 !important;
+  font-size: 1.875rem !important;
+  font-weight: 800 !important;
   color: #111827 !important;
-  margin-top: 4px !important;
+  line-height: 1.2;
 }
 
-@media (min-width: 768px) {
-  .dashboard-stat-value {
-    font-size: 1.875rem !important;
-  }
+.dashboard-stat-label {
+  font-size: 0.8125rem !important;
+  color: #6b7280 !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dashboard-stat-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.dashboard-stat-card:hover .dashboard-stat-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Colors styling for each card type */
+
+/* UDLA (Total) */
+.dashboard-stat-card-udla {
+  border-left: 5px solid #00693e !important;
+}
+.dashboard-stat-card-udla .dashboard-stat-icon-wrapper {
+  background-color: rgba(0, 105, 62, 0.08);
+  color: #00693e;
+}
+.dashboard-stat-card-udla:hover {
+  box-shadow: 0 12px 24px -10px rgba(0, 105, 62, 0.25), 0 8px 16px -8px rgba(0, 105, 62, 0.15) !important;
+  background-color: #f6fdf9 !important;
+}
+
+/* Amber (Reportados) */
+.dashboard-stat-card-amber {
+  border-left: 5px solid #d97706 !important;
+}
+.dashboard-stat-card-amber .dashboard-stat-icon-wrapper {
+  background-color: rgba(217, 119, 6, 0.08);
+  color: #d97706;
+}
+.dashboard-stat-card-amber:hover {
+  box-shadow: 0 12px 24px -10px rgba(217, 119, 6, 0.25), 0 8px 16px -8px rgba(217, 119, 6, 0.15) !important;
+  background-color: #fffdf5 !important;
+}
+
+/* Blue (En proceso) */
+.dashboard-stat-card-blue {
+  border-left: 5px solid #2563eb !important;
+}
+.dashboard-stat-card-blue .dashboard-stat-icon-wrapper {
+  background-color: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+}
+.dashboard-stat-card-blue:hover {
+  box-shadow: 0 12px 24px -10px rgba(37, 99, 235, 0.25), 0 8px 16px -8px rgba(37, 99, 235, 0.15) !important;
+  background-color: #f7faff !important;
+}
+
+/* Green (Resueltos) */
+.dashboard-stat-card-green {
+  border-left: 5px solid #16a34a !important;
+}
+.dashboard-stat-card-green .dashboard-stat-icon-wrapper {
+  background-color: rgba(22, 163, 74, 0.08);
+  color: #16a34a;
+}
+.dashboard-stat-card-green:hover {
+  box-shadow: 0 12px 24px -10px rgba(22, 163, 74, 0.25), 0 8px 16px -8px rgba(22, 163, 74, 0.15) !important;
+  background-color: #f6fdf7 !important;
 }
 
 .dashboard-section-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px !important;
+  margin-top: 16px !important;
+  margin-bottom: 24px !important;
 }
 
 .dashboard-section-title {
-  font-weight: 600 !important;
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  color: #111827 !important;
+  position: relative;
+  padding-left: 14px;
+}
+
+.dashboard-section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 4px;
+  background-color: #00693e;
+  border-radius: 2px;
 }
 
 .dashboard-link-all {
   font-size: 0.875rem !important;
   color: #00693e !important;
-  font-weight: 600 !important;
+  font-weight: 700 !important;
   text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease !important;
+}
+
+.dashboard-link-all i {
+  transition: transform 0.2s ease;
 }
 
 .dashboard-link-all:hover {
-  color: #005232 !important;
+  color: #003d25 !important;
+}
+
+.dashboard-link-all:hover i {
+  transform: translateX(4px);
 }
 
 .dashboard-incidents-grid {

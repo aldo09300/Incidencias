@@ -118,7 +118,8 @@ function NewIncident() {
   }
 
   return (
-    <div className="new-incident-container">
+    <div className="new-incident-page-wrapper">
+      <div className="new-incident-container">
       {/* Header */}
       <div className="new-incident-header">
         <div className="header-icon-wrapper">
@@ -363,6 +364,7 @@ function NewIncident() {
         </div>
       </form>
     </div>
+  </div>
   )
 }
 

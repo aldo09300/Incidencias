@@ -105,9 +105,13 @@ function StatCard({ label, value, color, icon }) {
   const colorClass = `dashboard-stat-card-${color}`
   return (
     <Paper elevation={0} className={`dashboard-stat-card ${colorClass}`}>
-      <Typography className="dashboard-stat-icon"><i className={icon}></i></Typography>
-      <Typography className="dashboard-stat-label">{label}</Typography>
-      <Typography className="dashboard-stat-value">{value}</Typography>
+      <div className="dashboard-stat-info">
+        <span className="dashboard-stat-value">{value}</span>
+        <span className="dashboard-stat-label">{label}</span>
+      </div>
+      <div className="dashboard-stat-icon-wrapper">
+        <i className={icon}></i>
+      </div>
     </Paper>
   )
 }
