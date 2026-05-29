@@ -40,7 +40,11 @@ function Register() {
     } catch (err) {
       console.dir(err); 
       console.log("Texto del error:", err.toString());
+<<<<<<< HEAD
       setError(errorMessage(err.code))
+=======
+      setError(errorMessage(err.code));
+>>>>>>> ec2bba6 (Mensaje de error en registro con mismo email)
     } finally {
       setLoading(false)
     }
