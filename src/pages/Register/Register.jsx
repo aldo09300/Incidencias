@@ -40,10 +40,7 @@ function Register() {
     } catch (err) {
       console.dir(err); // .dir muestra el objeto JavaScript con todas sus propiedades ocultas
       console.log("Texto del error:", err.toString());
-<<<<<<< HEAD
-=======
       setError(errorMessage(err.code))
->>>>>>> 0346d9d (Primer commit: subiendo proyecto inicial)
     } finally {
       setLoading(false)
     }
@@ -109,11 +106,7 @@ function Register() {
               fullWidth
               placeholder="Mínimo 6 caracteres"
               size="medium"
-<<<<<<< HEAD
-              inputProps={{ minLength: 6 }}
-=======
               slotProps={{ htmlInput: { minLength: 6 } }}
->>>>>>> 0346d9d (Primer commit: subiendo proyecto inicial)
             />
 
             <TextField

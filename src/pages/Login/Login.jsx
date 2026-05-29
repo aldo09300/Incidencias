@@ -132,14 +132,6 @@ function Login() {
                 placeholder="tucorreo@uniamazonia.edu.co"
                 size="medium"
                 className="login-textfield"
-<<<<<<< HEAD
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <EmailOutlinedIcon className="login-input-icon" />
-                    </InputAdornment>
-                  ),
-=======
                 slotProps={{
                   input: {
                     startAdornment: (
@@ -148,7 +140,6 @@ function Login() {
                       </InputAdornment>
                     ),
                   },
->>>>>>> 0346d9d (Primer commit: subiendo proyecto inicial)
                 }}
               />
             </div>
@@ -164,26 +155,6 @@ function Login() {
                 placeholder="••••••••"
                 size="medium"
                 className="login-textfield"
-<<<<<<< HEAD
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <LockOutlinedIcon className="login-input-icon" />
-                    </InputAdornment>
-                  ),
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        onClick={() => setShowPwd(!showPwd)}
-                        edge="end"
-                        size="small"
-                        className="login-toggle-pwd"
-                      >
-                        {showPwd ? <VisibilityOffIcon /> : <VisibilityIcon />}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-=======
                 slotProps={{
                   input: {
                     startAdornment: (
@@ -204,7 +175,6 @@ function Login() {
                       </InputAdornment>
                     ),
                   },
->>>>>>> 0346d9d (Primer commit: subiendo proyecto inicial)
                 }}
               />
             </div>
