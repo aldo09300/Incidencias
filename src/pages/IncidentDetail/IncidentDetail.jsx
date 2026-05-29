@@ -6,7 +6,7 @@ import { useAuth } from '../../context/AuthContext'
 import { useIncidents, cambiarEstado, eliminarIncidente, desagruparIncidente } from '../../hooks/useIncidents'
 import StatusBadge from '../../components/StatusBadge/StatusBadge'
 import Loader from '../../components/Loader/Loader'
-import { ESTADOS_LIST, getTipoLabel } from '../../utils/constants'
+import { ESTADOS_LIST, getTipoLabel, getTipoIcon } from '../../utils/constants'
 import { formatDate } from '../../utils/helpers'
 import './IncidentDetail.css'
 
@@ -84,13 +84,14 @@ function IncidentDetail() {
   return (
     <div className="detail-container">
       <button onClick={() => navigate(-1)} className="btn-ghost">
-        ← Volver
+        <i className="fa-solid fa-arrow-left" style={{ marginRight: '6px' }}></i> Volver
       </button>
 
       <div className="detail-card">
         <div className="detail-header">
           <div>
             <p className="detail-header-type">
+              <i className={getTipoIcon(incidente.tipo)} style={{ marginRight: '6px' }}></i>
               {getTipoLabel(incidente.tipo)}
             </p>
             <h2 className="detail-header-title">Reporte #{incidente.id.slice(0,8)}</h2>
@@ -116,7 +117,7 @@ function IncidentDetail() {
                   target="_blank" rel="noopener noreferrer"
                   className="info-item-link"
                 >
-                  {incidente.latitud.toFixed(5)}, {incidente.longitud.toFixed(5)} ↗
+                  {incidente.latitud.toFixed(5)}, {incidente.longitud.toFixed(5)} <i className="fa-solid fa-arrow-up-right-from-square" style={{ marginLeft: '4px', fontSize: '0.75rem' }}></i>
                 </a>
               }
             />
@@ -155,7 +156,7 @@ function IncidentDetail() {
             </div>
             {incidente.grupoId && (
               <p className="admin-warning">
-                ⚠ El cambio de estado se aplicará a los {grupoSize} incidentes del grupo.
+                <i className="fa-solid fa-triangle-exclamation" style={{ marginRight: '4px' }}></i> El cambio de estado se aplicará a los {grupoSize} incidentes del grupo.
               </p>
             )}
           </div>

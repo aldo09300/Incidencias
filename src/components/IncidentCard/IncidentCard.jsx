@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Card from '@mui/material/Card'
 import StatusBadge from '../StatusBadge/StatusBadge'
-import { getTipoLabel } from '../../utils/constants'
+import { getTipoLabel, getTipoIcon } from '../../utils/constants'
 import { formatDateShort } from '../../utils/helpers'
 import './IncidentCard.css'
 
@@ -25,6 +25,7 @@ function IncidentCard({ incidente }) {
         <div>
           <div className="incident-header">
             <p className="incident-type">
+              <i className={getTipoIcon(incidente.tipo)} style={{ marginRight: '6px' }}></i>
               {getTipoLabel(incidente.tipo)}
             </p>
             {incidente.grupoId && (
@@ -37,7 +38,7 @@ function IncidentCard({ incidente }) {
             {incidente.descripcion}
           </p>
           <span className="incident-location">
-            📍 {incidente.ubicacionTexto}
+            <i className="fa-solid fa-location-dot" style={{ marginRight: '4px' }}></i> {incidente.ubicacionTexto}
           </span>
         </div>
 

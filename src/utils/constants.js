@@ -1,12 +1,12 @@
 export const TIPOS_INCIDENTE = [
-  { value: 'bano',           label: 'Baño',           icon: '🚿' },
-  { value: 'electricidad',   label: 'Electricidad',   icon: '⚡' },
-  { value: 'infraestructura',label: 'Infraestructura',icon: '🏗️' },
-  { value: 'seguridad',      label: 'Seguridad',      icon: '🛡️' },
-  { value: 'aseo',           label: 'Aseo',           icon: '🧹' },
-  { value: 'mobiliario',     label: 'Mobiliario',     icon: '🪑' },
-  { value: 'tecnologia',     label: 'Tecnología',     icon: '💻' },
-  { value: 'otro',           label: 'Otro',           icon: '📌' },
+  { value: 'bano',           label: 'Baño',           icon: 'fa-solid fa-shower' },
+  { value: 'electricidad',   label: 'Electricidad',   icon: 'fa-solid fa-bolt' },
+  { value: 'infraestructura',label: 'Infraestructura',icon: 'fa-solid fa-helmet-safety' },
+  { value: 'seguridad',      label: 'Seguridad',      icon: 'fa-solid fa-shield-halved' },
+  { value: 'aseo',           label: 'Aseo',           icon: 'fa-solid fa-broom' },
+  { value: 'mobiliario',     label: 'Mobiliario',     icon: 'fa-solid fa-chair' },
+  { value: 'tecnologia',     label: 'Tecnología',     icon: 'fa-solid fa-laptop' },
+  { value: 'otro',           label: 'Otro',           icon: 'fa-solid fa-thumbtack' },
 ]
 
 export const ESTADOS = {
@@ -19,12 +19,12 @@ export const ESTADOS_LIST = Object.values(ESTADOS)
 
 export const getTipoLabel = (value) => {
   const tipo = TIPOS_INCIDENTE.find(t => t.value === value)
-  return tipo ? `${tipo.icon} ${tipo.label}` : value
+  return tipo ? tipo.label : value
 }
 
 export const getTipoIcon = (value) => {
   const tipo = TIPOS_INCIDENTE.find(t => t.value === value)
-  return tipo?.icon || '📌'
+  return tipo?.icon || 'fa-solid fa-thumbtack'
 }
 
 export const getEstado = (value) => {
