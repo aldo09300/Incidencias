@@ -114,7 +114,7 @@ function AdminPanel() {
                 {TIPOS_INCIDENTE.map(t => (
                   <MenuItem key={t.value} value={t.value}>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                      {t.icon} {t.label}
+                      <i className={t.icon} style={{ marginRight: '6px' }}></i> {t.label}
                     </Box>
                   </MenuItem>
                 ))}
@@ -137,7 +137,7 @@ function AdminPanel() {
               onClick={handleAgrupar}
               disabled={actionLoading || selected.size < 2}
             >
-              🔗 Agrupar
+              <i className="fa-solid fa-link" style={{ marginRight: '4px' }}></i> Agrupar
             </Button>
             {ESTADOS_LIST.map(e => (
               <Button
@@ -148,7 +148,7 @@ function AdminPanel() {
                 onClick={() => handleBulkEstado(e.value)}
                 disabled={actionLoading}
               >
-                → {e.label}
+                <i className="fa-solid fa-arrow-right" style={{ marginRight: '4px' }}></i> {e.label}
               </Button>
             ))}
             <Button size="small" color="inherit" onClick={clearSelection}>
@@ -160,7 +160,7 @@ function AdminPanel() {
 
       {filtered.length === 0 ? (
         <Paper elevation={1} className="admin-empty-state">
-          <Typography className="admin-empty-icon">📭</Typography>
+          <Typography className="admin-empty-icon"><i className="fa-solid fa-inbox"></i></Typography>
           <Typography variant="h6">No hay incidentes con esos filtros</Typography>
         </Paper>
       ) : (
@@ -194,8 +194,8 @@ function AdminPanel() {
                     </TableCell>
                     <TableCell>
                       <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <Typography sx={{ fontSize: '1.25rem', mr: 1 }}>{getTipoIcon(inc.tipo)}</Typography>
-                        {inc.grupoId && <Typography component="span" className="admin-icon-grouped" title="Agrupado">🔗</Typography>}
+                        <Typography sx={{ fontSize: '1.25rem', mr: 1 }}><i className={getTipoIcon(inc.tipo)}></i></Typography>
+                        {inc.grupoId && <Typography component="span" className="admin-icon-grouped" title="Agrupado"><i className="fa-solid fa-link"></i></Typography>}
                       </Box>
                     </TableCell>
                     <TableCell className="admin-desc-cell" sx={{ display: { xs: 'none', md: 'table-cell' } }}>
@@ -215,7 +215,7 @@ function AdminPanel() {
                     </TableCell>
                     <TableCell align="right">
                       <Typography component={Link} to={`/incidentes/${inc.id}`} className="admin-link">
-                        Ver →
+                      Ver <i className="fa-solid fa-arrow-right" style={{ marginLeft: '2px' }}></i>
                       </Typography>
                     </TableCell>
                   </TableRow>
