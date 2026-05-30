@@ -64,18 +64,42 @@ function Dashboard() {
         </Box>
       </Box>
 
-      <Grid container spacing={2} className="dashboard-stats-grid">
-        <Grid xs={6} lg={3}>
-          <StatCard label="Total" value={stats.total} color="udla" icon="fa-solid fa-chart-bar" />
+      <Grid container spacing={3} className="dashboard-stats-grid">
+        <Grid xs={12} sm={6} md={3}>
+          <StatCard 
+            label="Total" 
+            value={stats.total} 
+            color="udla" 
+            icon="fa-solid fa-chart-bar" 
+            subtitle="Historial de reportes"
+          />
         </Grid>
-        <Grid xs={6} lg={3}>
-          <StatCard label="Reportados" value={stats.reportado} color="amber" icon="fa-solid fa-bell" />
+        <Grid xs={12} sm={6} md={3}>
+          <StatCard 
+            label="Reportados" 
+            value={stats.reportado} 
+            color="amber" 
+            icon="fa-solid fa-bell" 
+            subtitle="Pendientes de revisión"
+          />
         </Grid>
-        <Grid xs={6} lg={3}>
-          <StatCard label="En proceso" value={stats.enProceso} color="blue" icon="fa-solid fa-wrench" />
+        <Grid xs={12} sm={6} md={3}>
+          <StatCard 
+            label="En proceso" 
+            value={stats.enProceso} 
+            color="blue" 
+            icon="fa-solid fa-wrench" 
+            subtitle="En curso de solución"
+          />
         </Grid>
-        <Grid xs={6} lg={3}>
-          <StatCard label="Resueltos" value={stats.resuelto} color="green" icon="fa-solid fa-circle-check" />
+        <Grid xs={12} sm={6} md={3}>
+          <StatCard 
+            label="Resueltos" 
+            value={stats.resuelto} 
+            color="green" 
+            icon="fa-solid fa-circle-check" 
+            subtitle="Cerrados con éxito"
+          />
         </Grid>
       </Grid>
 
@@ -101,13 +125,14 @@ function Dashboard() {
   )
 }
 
-function StatCard({ label, value, color, icon }) {
+function StatCard({ label, value, color, icon, subtitle }) {
   const colorClass = `dashboard-stat-card-${color}`
   return (
     <Paper elevation={0} className={`dashboard-stat-card ${colorClass}`}>
       <div className="dashboard-stat-info">
         <span className="dashboard-stat-value">{value}</span>
         <span className="dashboard-stat-label">{label}</span>
+        {subtitle && <span className="dashboard-stat-subtitle">{subtitle}</span>}
       </div>
       <div className="dashboard-stat-icon-wrapper">
         <i className={icon}></i>

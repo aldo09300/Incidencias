@@ -47,15 +47,15 @@ function Login() {
 
   return (
     <div className="login-root">
-      {/* ── LEFT PANEL ─────────────────────────────────── */}
+      
       <div className="login-left">
-        {/* Badge superior */}
+        
         <div className="login-left-badge">
           <ReportProblemOutlinedIcon className="login-left-badge-icon" />
           <span>Sistema activo</span>
         </div>
 
-        {/* Logo + nombre */}
+        
         <div className="login-left-brand">
           <Link to="/" className="login-left-logo-link">
             <img src="/logo-udla.png" alt="UDLA" className="login-left-logo" />
@@ -63,7 +63,7 @@ function Login() {
           <p className="login-left-brand-sub">Reporta · Gestiona · Resuelve</p>
         </div>
 
-        {/* Título principal */}
+        
         <div className="login-left-hero">
           <h1 className="login-left-title">
             UDLA — Sistema De Reportes
@@ -75,7 +75,7 @@ function Login() {
           </p>
         </div>
 
-        {/* Stats */}
+        
         <div className="login-left-stats">
           <div className="login-left-stat">
             <span className="login-left-stat-value">2</span>
@@ -87,7 +87,7 @@ function Login() {
           </div>
         </div>
 
-        {/* Features */}
+        
         <div className="login-left-features">
           <div className="login-left-feature">
             <LocationOnOutlinedIcon className="login-left-feature-icon" />
@@ -104,7 +104,7 @@ function Login() {
         </div>
       </div>
 
-      {/* ── RIGHT PANEL ────────────────────────────────── */}
+      
       <div className="login-right">
         <div className="login-form-card">
           <div className="login-form-header">

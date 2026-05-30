@@ -1,4 +1,4 @@
-/* ===== WRAPPER DE PÁGINA CON FONDO ===== */
+
 .new-incident-page-wrapper {
   background-image: linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.25)), url('../../assets/FondoReportes.jpg');
   background-size: cover;
@@ -10,7 +10,7 @@
   box-sizing: border-box;
 }
 
-/* ===== CONTENEDOR PRINCIPAL ===== */
+
 .new-incident-container {
   max-width: 768px;
   margin: 0 auto;
@@ -23,7 +23,7 @@
   }
 }
 
-/* ===== HEADER ===== */
+
 .new-incident-header {
   display: flex;
   align-items: center;
@@ -69,7 +69,7 @@
   margin: 4px 0 0 0;
 }
 
-/* ===== BANNER DE ERROR ===== */
+
 .error-banner {
   background: linear-gradient(135deg, #fef2f2 0%, #fff1f1 100%);
   border: 1px solid #fecaca;
@@ -89,14 +89,14 @@
   flex-shrink: 0;
 }
 
-/* ===== FORMULARIO ===== */
+
 .incident-form {
   display: flex;
   flex-direction: column;
   gap: 0;
 }
 
-/* ===== SECCIONES DEL FORMULARIO ===== */
+
 .form-section {
   background: #ffffff;
   border: 1px solid #e5e7eb;
@@ -130,7 +130,7 @@
   text-align: center;
 }
 
-/* ===== GRID DE TIPOS ===== */
+
 .type-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -194,7 +194,7 @@
   color: #003d25;
 }
 
-/* ===== CAMPOS DE FORMULARIO ===== */
+
 .form-label {
   font-size: 0.8rem;
   font-weight: 600;
@@ -266,7 +266,7 @@
   text-align: right;
 }
 
-/* ===== FOTOGRAFÍA ===== */
+
 .file-preview-container {
   position: relative;
   border-radius: 12px;
@@ -348,7 +348,7 @@
   margin: 0;
 }
 
-/* ===== UBICACIÓN - SEDE ===== */
+
 .sede-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -398,7 +398,7 @@
   color: #00693e;
 }
 
-/* ===== UBICACIÓN - DETALLES ===== */
+
 .location-details {
   background: #f9fafb;
   border: 1px solid #e5e7eb;
@@ -430,7 +430,7 @@
   flex-direction: column;
 }
 
-/* ===== BOTÓN GPS ===== */
+
 .btn-gps {
   display: inline-flex;
   align-items: center;
@@ -478,7 +478,7 @@
   color: #00693e;
 }
 
-/* ===== ACCIONES DEL FORMULARIO ===== */
+
 .form-actions {
   display: flex;
   flex-direction: column;

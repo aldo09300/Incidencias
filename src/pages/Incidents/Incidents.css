@@ -40,7 +40,7 @@
   background-color: #005232;
 }
 
-/* Card filter */
+
 .filter-card {
   background: #ffffff;
   border: 1px solid #e5e7eb;
@@ -100,7 +100,7 @@
   gap: 8px;
 }
 
-/* Filter Chips */
+
 .filter-chip {
   padding: 6px 12px;
   border-radius: 9999px;
@@ -141,7 +141,7 @@
   color: #ffffff;
 }
 
-/* No results card */
+
 .no-results-card {
   background: #ffffff;
   border: 1px solid #e5e7eb;
@@ -167,7 +167,7 @@
   font-size: 0.875rem;
 }
 
-/* Incidents list grid */
+
 .incidents-grid {
   display: grid;
   grid-template-columns: 1fr;

@@ -34,7 +34,7 @@ function Navbar() {
     >
       <div className="navbar-container">
         <Toolbar disableGutters className="navbar-toolbar">
-          {/* Logo */}
+          
           <Link to="/dashboard" className="navbar-logo-link">
             <img
               src="/logo-udla.png"
@@ -51,7 +51,7 @@ function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop nav links */}
+          
           <div className="navbar-desktop-nav">
             <NavLink to="/dashboard" className={linkClass}>Inicio</NavLink>
             <NavLink to="/incidentes" className={linkClass}>Incidentes</NavLink>
@@ -67,11 +67,11 @@ function Navbar() {
             )}
           </div>
 
-          {/* Right section */}
+          
           <div className="navbar-right-section">
             {user && <NotificationBell />}
 
-            {/* Desktop user info */}
+            
             <div className="navbar-desktop-user">
               <div className="navbar-user-info">
                 <p className="navbar-user-name">
@@ -90,7 +90,7 @@ function Navbar() {
               </IconButton>
             </div>
 
-            {/* Mobile hamburger */}
+            
             <IconButton
               onClick={() => setOpen(!open)}
               aria-label="Menú"
@@ -101,7 +101,7 @@ function Navbar() {
           </div>
         </Toolbar>
 
-        {/* Mobile nav */}
+        
         <Collapse in={open} className="navbar-mobile-menu">
           <div className="navbar-mobile-nav">
             <div className="navbar-mobile-links">
