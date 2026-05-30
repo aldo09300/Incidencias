@@ -3,6 +3,7 @@ import { Link, useNavigate, Navigate } from 'react-router-dom'
 import { useAuth } from '../../context/AuthContext'
 import { errorMessage } from '../../utils/helpers'
 import TextField from '@mui/material/TextField'
+import { useIncidents } from '../../hooks/useIncidents'
 import Button from '@mui/material/Button'
 import Alert from '@mui/material/Alert'
 import InputAdornment from '@mui/material/InputAdornment'
@@ -20,11 +21,12 @@ import './Login.css'
 
 function Login() {
   const { user, login } = useAuth()
-  const [email, setEmail]       = useState('')
+  const [email, setEmail] = useState('')
+  const { incidentes } = useIncidents({ all: true })
   const [password, setPassword] = useState('')
-  const [showPwd, setShowPwd]   = useState(false)
-  const [loading, setLoading]   = useState(false)
-  const [error, setError]       = useState('')
+  const [showPwd, setShowPwd] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
   const navigate = useNavigate()
 
   if (user) return <Navigate to="/dashboard" replace />
@@ -58,13 +60,13 @@ function Login() {
           <Link to="/" className="login-left-logo-link">
             <img src="/logo-udla.png" alt="UDLA" className="login-left-logo" />
           </Link>
-          <p className="login-left-brand-sub">SISTEMA DE GESTIÓN DE INCIDENTES</p>
+          <p className="login-left-brand-sub">Reporta · Gestiona · Resuelve</p>
         </div>
 
         
         <div className="login-left-hero">
           <h1 className="login-left-title">
-            UDLA — IncidentTrack
+            UDLA — Sistema De Reportes
           </h1>
           <p className="login-left-desc">
             Reporta, gestiona y resuelve incidentes de infraestructura en la
@@ -76,16 +78,12 @@ function Login() {
         
         <div className="login-left-stats">
           <div className="login-left-stat">
-            <span className="login-left-stat-value">3</span>
-            <span className="login-left-stat-label">Tipos de usuario</span>
+            <span className="login-left-stat-value">2</span>
+            <span className="login-left-stat-label">Sedes Universitarias</span>
           </div>
           <div className="login-left-stat">
-            <span className="login-left-stat-value">5</span>
-            <span className="login-left-stat-label">Estados de incidente</span>
-          </div>
-          <div className="login-left-stat">
-            <span className="login-left-stat-value">∞</span>
-            <span className="login-left-stat-label">Reportes en tiempo real</span>
+            <span className="login-left-stat-value">{incidentes ? incidentes.length : 0} </span>
+            <span className="login-left-stat-label">Incidentes Reportados</span>
           </div>
         </div>
 

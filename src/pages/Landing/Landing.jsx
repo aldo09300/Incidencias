@@ -34,14 +34,14 @@ const FEATURES = [
 ]
 
 const INCIDENT_TYPES = [
-  { icon: <ElectricBoltOutlinedIcon />,    label: 'Daños eléctricos' },
-  { icon: <WaterDamageOutlinedIcon />,     label: 'Fugas de agua' },
-  { icon: <ConstructionOutlinedIcon />,    label: 'Infraestructura' },
+  { icon: <ElectricBoltOutlinedIcon />, label: 'Daños eléctricos' },
+  { icon: <WaterDamageOutlinedIcon />, label: 'Fugas de agua' },
+  { icon: <ConstructionOutlinedIcon />, label: 'Infraestructura' },
 ]
 
 const STATS = [
-  { value: '3',  label: 'Tipos de usuario' },
-  { value: '5',  label: 'Estados de seguimiento' },
+  { value: '2', label: 'Tipos de usuario' },
+  { value: '3', label: 'Estados de seguimiento' },
   { value: '24/7', label: 'Disponibilidad' },
 ]
 
@@ -49,7 +49,7 @@ function Landing() {
   const { user, loading } = useAuth()
 
   if (loading) return <Loader fullScreen />
-  if (user)    return <Navigate to="/dashboard" replace />
+  if (user) return <Navigate to="/dashboard" replace />
 
   return (
     <div className="lnd-root">

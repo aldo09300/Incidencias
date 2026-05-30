@@ -114,3 +114,15 @@
 .admin-link:hover {
   color: #005232 !important;
 }
+
+.admin-badge-grouped {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  background-color: #f3e8ff;
+  color: #6b21a8;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}

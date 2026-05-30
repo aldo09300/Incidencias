@@ -37,9 +37,42 @@ function AdminPanel() {
     )
   }, [incidentes, filterEstado, filterTipo])
 
-  const toggleSelect = (id) => {
+  const groupedData = useMemo(() => {
+    const groups = new Map()
+    const result = []
+
+    filtered.forEach(inc => {
+      if (inc.grupoId) {
+        if (!groups.has(inc.grupoId)) {
+          groups.set(inc.grupoId, { ...inc, isGroupLeader: true, groupItems: [inc] })
+          result.push(groups.get(inc.grupoId))
+        } else {
+          groups.get(inc.grupoId).groupItems.push(inc)
+        }
+      } else {
+        result.push(inc)
+      }
+    })
+    return result
+  }, [filtered])
+
+  const toggleSelect = (inc) => {
     const s = new Set(selected)
-    if (s.has(id)) s.delete(id); else s.add(id)
+    
+    // Si tiene grupo, seleccionamos o deseleccionamos a todos los del grupo
+    if (inc.grupoId) {
+      const items = incidentes.filter(i => i.grupoId === inc.grupoId)
+      // Si el líder ya está seleccionado, quitamos todos. Si no, agregamos todos.
+      const isSelected = s.has(inc.id)
+      items.forEach(item => {
+        if (isSelected) s.delete(item.id)
+        else s.add(item.id)
+      })
+    } else {
+      if (s.has(inc.id)) s.delete(inc.id)
+      else s.add(inc.id)
+    }
+    
     setSelected(s)
   }
 
@@ -158,7 +191,7 @@ function AdminPanel() {
         </Paper>
       )}
 
-      {filtered.length === 0 ? (
+      {groupedData.length === 0 ? (
         <Paper elevation={1} className="admin-empty-state">
           <Typography className="admin-empty-icon"><i className="fa-solid fa-inbox"></i></Typography>
           <Typography variant="h6">No hay incidentes con esos filtros</Typography>
@@ -178,7 +211,7 @@ function AdminPanel() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {filtered.map(inc => {
+              {groupedData.map(inc => {
                 const isSelected = selected.has(inc.id);
                 return (
                   <TableRow
@@ -189,21 +222,30 @@ function AdminPanel() {
                       <Checkbox
                         color="primary"
                         checked={isSelected}
-                        onChange={() => toggleSelect(inc.id)}
+                        onChange={() => toggleSelect(inc)}
                       />
                     </TableCell>
                     <TableCell>
                       <Box sx={{ display: 'flex', alignItems: 'center' }}>
                         <Typography sx={{ fontSize: '1.25rem', mr: 1 }}><i className={getTipoIcon(inc.tipo)}></i></Typography>
-                        {inc.grupoId && <Typography component="span" className="admin-icon-grouped" title="Agrupado"><i className="fa-solid fa-link"></i></Typography>}
                       </Box>
                     </TableCell>
                     <TableCell className="admin-desc-cell" sx={{ display: { xs: 'none', md: 'table-cell' } }}>
-                      <Typography variant="body2" className="admin-desc-text">{inc.descripcion}</Typography>
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                        <Typography variant="body2" className="admin-desc-text">{inc.descripcion}</Typography>
+                        {inc.isGroupLeader && inc.groupItems.length > 1 && (
+                          <span className="admin-badge-grouped">
+                            <i className="fa-solid fa-link" style={{ marginRight: '4px' }}></i>
+                            {inc.groupItems.length} agrupados
+                          </span>
+                        )}
+                      </Box>
                       <Typography className="admin-desc-location">{inc.ubicacionTexto}</Typography>
                     </TableCell>
                     <TableCell sx={{ display: { xs: 'none', lg: 'table-cell' } }}>
-                      <Typography variant="body2" color="text.secondary">{inc.usuarioNombre}</Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {inc.isGroupLeader && inc.groupItems.length > 1 ? `${inc.usuarioNombre} y otros` : inc.usuarioNombre}
+                      </Typography>
                     </TableCell>
                     <TableCell>
                       <StatusBadge estado={inc.estado} />
