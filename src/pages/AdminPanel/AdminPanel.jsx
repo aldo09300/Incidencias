@@ -59,10 +59,10 @@ function AdminPanel() {
   const toggleSelect = (inc) => {
     const s = new Set(selected)
     
-    // Si tiene grupo, seleccionamos o deseleccionamos a todos los del grupo
+    
     if (inc.grupoId) {
       const items = incidentes.filter(i => i.grupoId === inc.grupoId)
-      // Si el líder ya está seleccionado, quitamos todos. Si no, agregamos todos.
+      
       const isSelected = s.has(inc.id)
       items.forEach(item => {
         if (isSelected) s.delete(item.id)
