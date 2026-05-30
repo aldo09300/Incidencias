@@ -25,6 +25,7 @@ export const errorMessage = (code) => {
     'auth/invalid-credential':   'Credenciales incorrectas.',
     'auth/too-many-requests':    'Demasiados intentos. Espera unos minutos.',
     'auth/network-request-failed':'Error de conexión. Verifica tu internet.',
+    'auth/email-not-verified':   'Por favor verifica tu correo electrónico antes de iniciar sesión.',
   }
   return map[code] || 'Ocurrió un error. Intenta de nuevo.'
 }
