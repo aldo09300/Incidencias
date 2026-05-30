@@ -1,17 +1,13 @@
-/* ═══════════════════════════════════════════════════
-   LANDING PAGE — Split layout dark/green
-   Mirrors Login aesthetics. Colors from theme.js:
-     primary:  #00693e  light: #3a8e63  deep: #001e12
-   ═══════════════════════════════════════════════════ */
 
-/* Root: full viewport, two columns */
+
+
 .lnd-root {
   display: flex;
   min-height: 100vh;
   font-family: 'Inter', system-ui, sans-serif;
 }
 
-/* ── LEFT PANEL ─────────────────────────────────── */
+
 .lnd-left {
   flex: 1;
   background: linear-gradient(155deg, #001e12 0%, #003d25 50%, #00693e 100%);
@@ -23,7 +19,7 @@
   gap: 28px;
 }
 
-/* Decorative blurred circles */
+
 .lnd-circle {
   position: absolute;
   border-radius: 50%;
@@ -46,7 +42,7 @@
   background: radial-gradient(circle, rgba(58,142,99,0.12) 0%, transparent 70%);
 }
 
-/* ── Top: Brand + Badge */
+
 .lnd-top {
   display: flex;
   align-items: center;
@@ -112,7 +108,7 @@
   color: #3a8e63;
 }
 
-/* ── Hero text */
+
 .lnd-hero {
   position: relative;
   z-index: 1;
@@ -148,7 +144,7 @@
   max-width: 440px;
 }
 
-/* ── Incident type chips */
+
 .lnd-chips {
   display: flex;
   flex-wrap: wrap;
@@ -179,14 +175,14 @@
   display: flex;
   align-items: center;
   color: #3a8e63;
-  font-size: 0 !important; /* let svg inherit */
+  font-size: 0 !important; 
 }
 
 .lnd-chip-icon svg {
   font-size: 1rem;
 }
 
-/* ── Stats */
+
 .lnd-stats {
   display: flex;
   gap: 36px;
@@ -215,7 +211,7 @@
   font-weight: 500;
 }
 
-/* ── Footer text */
+
 .lnd-footer {
   font-size: 0.72rem;
   color: rgba(157, 204, 176, 0.4);
@@ -225,7 +221,7 @@
   z-index: 1;
 }
 
-/* ── RIGHT PANEL ─────────────────────────────── */
+
 .lnd-right {
   width: 480px;
   min-width: 360px;
@@ -244,7 +240,7 @@
   gap: 28px;
 }
 
-/* Card header */
+
 .lnd-card-header {
   display: flex;
   flex-direction: column;
@@ -266,7 +262,7 @@
   line-height: 1.6;
 }
 
-/* Feature list */
+
 .lnd-features {
   display: flex;
   flex-direction: column;
@@ -323,7 +319,7 @@
   line-height: 1.5;
 }
 
-/* Divider */
+
 .lnd-divider {
   display: flex;
   align-items: center;
@@ -344,7 +340,7 @@
   color: rgba(157, 204, 176, 0.4);
 }
 
-/* Action buttons */
+
 .lnd-actions {
   display: flex;
   flex-direction: column;
@@ -388,7 +384,7 @@
   color: #c5e0d0 !important;
 }
 
-/* ── RESPONSIVE ──────────────────────────────── */
+
 @media (max-width: 960px) {
   .lnd-root {
     flex-direction: column;

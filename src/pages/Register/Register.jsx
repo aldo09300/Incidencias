@@ -38,7 +38,7 @@ function Register() {
       await register(nombre.trim(), email.trim(), password)
       navigate('/dashboard')
     } catch (err) {
-      console.dir(err); // .dir muestra el objeto JavaScript con todas sus propiedades ocultas
+      console.dir(err); 
       console.log("Texto del error:", err.toString());
       setError(errorMessage(err.code))
     } finally {

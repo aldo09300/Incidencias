@@ -1,4 +1,4 @@
-/* ── Global Styles ── */
+
 body {
   margin: 0;
   font-family: 'Inter', system-ui, sans-serif;
@@ -13,7 +13,7 @@ a {
   color: inherit;
 }
 
-/* ── Print Styles ── */
+
 @media print {
   body * {
     visibility: hidden;

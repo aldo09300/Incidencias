@@ -54,14 +54,14 @@ function Landing() {
   return (
     <div className="lnd-root">
 
-      {/* ══ LEFT PANEL ══════════════════════════════════════ */}
+      
       <div className="lnd-left">
 
-        {/* Decorative circles */}
+        
         <div className="lnd-circle lnd-circle-1" />
         <div className="lnd-circle lnd-circle-2" />
 
-        {/* Top bar: logo + badge */}
+        
         <div className="lnd-top">
           <div className="lnd-brand">
             <img src="/logo-udla.png" alt="UDLA" className="lnd-logo" />
@@ -76,7 +76,7 @@ function Landing() {
           </div>
         </div>
 
-        {/* Hero */}
+        
         <div className="lnd-hero">
           <p className="lnd-tagline">Reporta · Gestiona · Resuelve</p>
           <h1 className="lnd-title">Sistema de Reporte<br />de Incidentes</h1>
@@ -87,7 +87,7 @@ function Landing() {
           </p>
         </div>
 
-        {/* Incident type chips */}
+        
         <div className="lnd-chips">
           {INCIDENT_TYPES.map(({ icon, label }) => (
             <div key={label} className="lnd-chip">
@@ -97,7 +97,7 @@ function Landing() {
           ))}
         </div>
 
-        {/* Stats */}
+        
         <div className="lnd-stats">
           {STATS.map(({ value, label }) => (
             <div key={label} className="lnd-stat">
@@ -107,17 +107,17 @@ function Landing() {
           ))}
         </div>
 
-        {/* Footer text */}
+        
         <p className="lnd-footer">
           Programación Web · Ingeniería de Sistemas · 2026-I
         </p>
       </div>
 
-      {/* ══ RIGHT PANEL ═════════════════════════════════════ */}
+      
       <div className="lnd-right">
         <div className="lnd-card">
 
-          {/* Header */}
+          
           <div className="lnd-card-header">
             <h2 className="lnd-card-title">Bienvenido</h2>
             <p className="lnd-card-subtitle">
@@ -125,7 +125,7 @@ function Landing() {
             </p>
           </div>
 
-          {/* Features list */}
+          
           <div className="lnd-features">
             {FEATURES.map(({ icon, title, desc }) => (
               <div key={title} className="lnd-feature">
@@ -138,14 +138,14 @@ function Landing() {
             ))}
           </div>
 
-          {/* Divider */}
+          
           <div className="lnd-divider">
             <span className="lnd-divider-line" />
             <span className="lnd-divider-text">Acceder</span>
             <span className="lnd-divider-line" />
           </div>
 
-          {/* CTA buttons */}
+          
           <div className="lnd-actions">
             <Button
               component={Link}

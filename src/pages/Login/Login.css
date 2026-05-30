@@ -1,16 +1,13 @@
-/* ════════════════════════════════════════════
-   LOGIN — Split layout (left dark + right form)
-   Colors: #00693e primary, #001e12 deepest dark
-   ════════════════════════════════════════════ */
 
-/* Root: full viewport, two columns */
+
+
 .login-root {
   display: flex;
   min-height: 100vh;
   font-family: 'Inter', system-ui, sans-serif;
 }
 
-/* ── LEFT PANEL ─────────────────────────────── */
+
 .login-left {
   flex: 1;
   background: linear-gradient(160deg, #001e12 0%, #003d25 55%, #00693e 100%);
@@ -22,7 +19,7 @@
   overflow: hidden;
 }
 
-/* Decorative background circles */
+
 .login-left::before {
   content: '';
   position: absolute;
@@ -47,7 +44,7 @@
   pointer-events: none;
 }
 
-/* Badge "Sistema activo" */
+
 .login-left-badge {
   display: inline-flex;
   align-items: center;
@@ -69,7 +66,7 @@
   color: #3a8e63;
 }
 
-/* Brand / Logo */
+
 .login-left-brand {
   display: flex;
   flex-direction: column;
@@ -101,7 +98,7 @@
   margin: 0;
 }
 
-/* Hero text */
+
 .login-left-hero {
   flex: 1;
   display: flex;
@@ -127,7 +124,7 @@
   max-width: 380px;
 }
 
-/* Stats row */
+
 .login-left-stats {
   display: flex;
   gap: 32px;
@@ -155,7 +152,7 @@
   font-weight: 500;
 }
 
-/* Feature bullets */
+
 .login-left-features {
   display: flex;
   flex-direction: column;
@@ -176,7 +173,7 @@
   color: #3a8e63;
 }
 
-/* ── RIGHT PANEL ────────────────────────────── */
+
 .login-right {
   width: 460px;
   min-width: 360px;
@@ -210,13 +207,13 @@
   margin: 0;
 }
 
-/* Alert */
+
 .login-alert {
   margin-bottom: 20px !important;
   border-radius: 8px !important;
 }
 
-/* Form */
+
 .login-form {
   display: flex;
   flex-direction: column;
@@ -237,7 +234,7 @@
   text-transform: uppercase;
 }
 
-/* Override MUI TextField for dark background */
+
 .login-textfield .MuiOutlinedInput-root {
   background: rgba(0, 105, 62, 0.08);
   border-radius: 8px !important;
@@ -280,7 +277,7 @@
   background: rgba(58, 142, 99, 0.1) !important;
 }
 
-/* Submit button */
+
 .login-submit-btn {
   margin-top: 8px !important;
   background: linear-gradient(135deg, #00693e 0%, #3a8e63 100%) !important;
@@ -305,7 +302,7 @@
   color: rgba(157, 204, 176, 0.4) !important;
 }
 
-/* Footer / register link */
+
 .login-register-text {
   text-align: center;
   color: rgba(157, 204, 176, 0.5);
@@ -325,7 +322,7 @@
   color: #ffffff;
 }
 
-/* ── RESPONSIVE ─────────────────────────────── */
+
 @media (max-width: 900px) {
   .login-root {
     flex-direction: column;
@@ -345,7 +342,7 @@
   }
 
   .login-left-features {
-    display: none; /* hidden on mobile to save space */
+    display: none; 
   }
 
   .login-right {

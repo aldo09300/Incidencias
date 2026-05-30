@@ -13,7 +13,7 @@ function NewIncident() {
   const [tipo, setTipo] = useState('')
   const [descripcion, setDescripcion] = useState('')
 
-  // Ubicación categorizada
+  
   const [sede, setSede] = useState('')
   const [bloque, setBloque] = useState('')
   const [piso, setPiso] = useState('')
@@ -120,7 +120,7 @@ function NewIncident() {
   return (
     <div className="new-incident-page-wrapper">
       <div className="new-incident-container">
-      {/* Header */}
+      
       <div className="new-incident-header">
         <div className="header-icon-wrapper">
           <i className="fa-solid fa-triangle-exclamation"></i>
@@ -141,7 +141,7 @@ function NewIncident() {
       )}
 
       <form onSubmit={handleSubmit} className="incident-form">
-        {/* Tipo de incidente */}
+        
         <div className="form-section">
           <div className="section-title">
             <i className="fa-solid fa-tag"></i>
@@ -162,7 +162,7 @@ function NewIncident() {
           </div>
         </div>
 
-        {/* Descripción */}
+        
         <div className="form-section">
           <div className="section-title">
             <i className="fa-solid fa-align-left"></i>
@@ -179,7 +179,7 @@ function NewIncident() {
           <p className="char-counter">{descripcion.length}/500</p>
         </div>
 
-        {/* Fotografía */}
+        
         <div className="form-section">
           <div className="section-title">
             <i className="fa-solid fa-camera"></i>
@@ -219,14 +219,14 @@ function NewIncident() {
           )}
         </div>
 
-        {/* Ubicación */}
+        
         <div className="form-section">
           <div className="section-title">
             <i className="fa-solid fa-location-dot"></i>
             <span>Ubicación</span>
           </div>
 
-          {/* Selector de sede */}
+          
           <label className="form-label">Sede</label>
           <div className="sede-grid">
             <button
@@ -247,7 +247,7 @@ function NewIncident() {
             </button>
           </div>
 
-          {/* Campos condicionales según sede */}
+          
           {sede && (
             <div className="location-details">
               {sede === 'porvenir' && (
@@ -323,7 +323,7 @@ function NewIncident() {
             </div>
           )}
 
-          {/* GPS */}
+          
           <button
             type="button"
             onClick={obtenerUbicacion}
@@ -340,7 +340,7 @@ function NewIncident() {
           )}
         </div>
 
-        {/* Acciones */}
+        
         <div className="form-actions">
           <button
             type="button"

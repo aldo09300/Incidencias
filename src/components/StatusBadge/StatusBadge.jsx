@@ -4,7 +4,7 @@ import './StatusBadge.css'
 
 function StatusBadge({ estado }) {
   const info = getEstado(estado)
-  const colorName = info.color || 'amber' // defaults to amber in constants mostly
+  const colorName = info.color || 'amber' 
 
   return (
     <Chip
