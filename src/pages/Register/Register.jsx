@@ -36,7 +36,8 @@ function Register() {
     setLoading(true)
     try {
       await register(nombre.trim(), email.trim(), password)
-      navigate('/dashboard')
+      alert("¡Registro exitoso! Por favor, revisa tu correo electrónico para verificar tu cuenta antes de iniciar sesión.")
+      navigate('/login')
     } catch (err) {
       console.dir(err); // .dir muestra el objeto JavaScript con todas sus propiedades ocultas
       console.log("Texto del error:", err.toString());

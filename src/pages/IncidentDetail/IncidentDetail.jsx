@@ -65,6 +65,25 @@ function IncidentDetail() {
     setActionLoading(false)
   }
 
+  const grupoItems = incidente.grupoId
+    ? incidentes.filter(i => i.grupoId === incidente.grupoId)
+    : []
+  
+  const isGrouped = grupoItems.length > 1
+  const currentIndex = isGrouped ? grupoItems.findIndex(i => i.id === incidente.id) : -1
+  
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      navigate(`/incidentes/${grupoItems[currentIndex - 1].id}`)
+    }
+  }
+
+  const handleNext = () => {
+    if (currentIndex < grupoItems.length - 1) {
+      navigate(`/incidentes/${grupoItems[currentIndex + 1].id}`)
+    }
+  }
+
   const handleEliminar = async () => {
     if (!confirm('¿Eliminar este incidente? Esta acción no se puede deshacer.')) return
     setActionLoading(true)
@@ -88,6 +107,18 @@ function IncidentDetail() {
       </button>
 
       <div className="detail-card">
+        {isGrouped && (
+          <div className="detail-group-nav">
+            <button onClick={handlePrev} disabled={currentIndex === 0} className="group-nav-btn" title="Anterior del grupo">
+              <i className="fa-solid fa-chevron-left"></i>
+            </button>
+            <span className="group-nav-text">Reporte {currentIndex + 1} de {grupoItems.length} en el grupo</span>
+            <button onClick={handleNext} disabled={currentIndex === grupoItems.length - 1} className="group-nav-btn" title="Siguiente del grupo">
+              <i className="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        )}
+
         <div className="detail-header">
           <div>
             <p className="detail-header-type">
