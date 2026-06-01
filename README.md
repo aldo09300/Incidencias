@@ -22,7 +22,7 @@ Aplicación web en React + Firebase para reportar y gestionar incidentes dentro 
 
 - React 18 + Vite
 - React Router DOM
-- Tailwind CSS
+- MUI
 - Firebase: Auth + Firestore + Storage
 - Recharts (gráficos)
 - react-to-print (impresión)
