@@ -57,7 +57,7 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     if (!user) return
 
-    const INACTIVITY_LIMIT = 15 * 60 * 1000 // 15 minutos en milisegundos
+    const INACTIVITY_LIMIT = 20 * 60 * 1000 // 20 minutos en milisegundos
     let timeoutId
 
     const resetTimer = () => {
