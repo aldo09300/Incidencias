@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState, useCallback } from 'react'
 import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
@@ -52,7 +52,36 @@ export function AuthProvider({ children }) {
   const login = async (email, password) => {
     return await signInWithEmailAndPassword(auth, email, password)
   }
-  const logout = () => signOut(auth)
+  const logout = useCallback(() => signOut(auth), [])
+
+  useEffect(() => {
+    if (!user) return
+
+    const INACTIVITY_LIMIT = 15 * 60 * 1000 // 15 minutos en milisegundos
+    let timeoutId
+
+    const resetTimer = () => {
+      if (timeoutId) clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => {
+        logout()
+      }, INACTIVITY_LIMIT)
+    }
+
+    resetTimer()
+
+    const events = ['mousemove', 'keydown', 'click', 'scroll', 'touchstart']
+
+    events.forEach((event) => {
+      window.addEventListener(event, resetTimer)
+    })
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId)
+      events.forEach((event) => {
+        window.removeEventListener(event, resetTimer)
+      })
+    }
+  }, [user, logout])
 
   const isAdmin = profile?.role === 'admin'
 
