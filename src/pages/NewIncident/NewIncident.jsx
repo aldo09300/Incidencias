@@ -13,7 +13,7 @@ function NewIncident() {
   const [tipo, setTipo] = useState('')
   const [descripcion, setDescripcion] = useState('')
 
-  
+
   const [sede, setSede] = useState('')
   const [bloque, setBloque] = useState('')
   const [piso, setPiso] = useState('')
@@ -254,7 +254,7 @@ function NewIncident() {
                         value={bloque}
                         onChange={(e) => setBloque(e.target.value)}
                         className="form-input"
-                        placeholder="Ej. A, B, 1, 2..."
+                        placeholder="Ej. 1,2,3,4..."
                       />
                     </div>
                     <div className="location-field">
