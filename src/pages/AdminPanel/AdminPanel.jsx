@@ -59,10 +59,10 @@ function AdminPanel() {
   const toggleSelect = (inc) => {
     const s = new Set(selected)
     
-    // Si tiene grupo, seleccionamos o deseleccionamos a todos los del grupo
+    
     if (inc.grupoId) {
       const items = incidentes.filter(i => i.grupoId === inc.grupoId)
-      // Si el líder ya está seleccionado, quitamos todos. Si no, agregamos todos.
+      
       const isSelected = s.has(inc.id)
       items.forEach(item => {
         if (isSelected) s.delete(item.id)
@@ -110,7 +110,7 @@ function AdminPanel() {
   return (
     <Box className="admin-container">
       <Box className="admin-header">
-        <Typography variant="h4" fontWeight={700}>Panel de Administración</Typography>
+        <h1 className="admin-title">Panel de Administración</h1>
         <Typography variant="body2" className="admin-subtitle">
           Selecciona incidentes para gestionar en lote o agrupar duplicados.
         </Typography>
@@ -118,7 +118,7 @@ function AdminPanel() {
 
       <Paper elevation={1} className="admin-paper">
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
+          <Grid xs={12} sm={6}>
             <FormControl fullWidth size="small">
               <InputLabel id="filter-estado-label">Filtrar por estado</InputLabel>
               <Select
@@ -134,7 +134,7 @@ function AdminPanel() {
               </Select>
             </FormControl>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid xs={12} sm={6}>
             <FormControl fullWidth size="small">
               <InputLabel id="filter-tipo-label">Filtrar por tipo</InputLabel>
               <Select

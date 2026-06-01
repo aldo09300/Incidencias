@@ -41,27 +41,16 @@ export function AuthProvider({ children }) {
     const cred = await createUserWithEmailAndPassword(auth, email, password)
     await updateProfile(cred.user, { displayName: nombre })
 
-    // Send verification email
-    await sendEmailVerification(cred.user)
-
     await setDoc(doc(db, 'usuarios', cred.user.uid), {
       nombre,
       email,
       role: 'usuario',
       fechaRegistro: serverTimestamp(),
     })
-    
-    // Sign out immediately so they have to verify their email
-    await signOut(auth)
   }
 
   const login = async (email, password) => {
-    const cred = await signInWithEmailAndPassword(auth, email, password)
-    if (!cred.user.emailVerified) {
-      await signOut(auth)
-      throw { code: 'auth/email-not-verified' }
-    }
-    return cred
+    return await signInWithEmailAndPassword(auth, email, password)
   }
   const logout = () => signOut(auth)
 

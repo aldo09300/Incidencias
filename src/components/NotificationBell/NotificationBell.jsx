@@ -56,7 +56,7 @@ function NotificationBell() {
           },
         }}
       >
-        {/* Header */}
+        
         <div className="notification-header">
           <p className="notification-header-title">
             Notificaciones
@@ -72,7 +72,7 @@ function NotificationBell() {
           )}
         </div>
 
-        {/* List */}
+        
         <div className="notification-list">
           {notificaciones.length === 0 ? (
             <p className="notification-empty">

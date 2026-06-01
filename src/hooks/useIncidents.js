@@ -69,7 +69,7 @@ export const crearIncidente = async ({ usuarioId, usuarioNombre, tipo, descripci
     fechaActualizacion: serverTimestamp(),
   })
 
-  // Notificar a administradores (RF-14)
+  
   await notificarAdmins({
     titulo: 'Nuevo incidente reportado',
     mensaje: `${usuarioNombre} reportó: ${tipo}`,
@@ -84,7 +84,7 @@ export const cambiarEstado = async (incidenteId, nuevoEstado, incidentes = []) =
   const ids = []
 
   if (incidente?.grupoId) {
-    // Si tiene grupo, actualizar todos los del grupo
+    
     incidentes
       .filter(i => i.grupoId === incidente.grupoId)
       .forEach(i => ids.push(i.id))
@@ -101,7 +101,7 @@ export const cambiarEstado = async (incidenteId, nuevoEstado, incidentes = []) =
   })
   await batch.commit()
 
-  // Notificar a los usuarios afectados (RF-13)
+  
   const afectados = incidentes.filter(i => ids.includes(i.id))
   for (const inc of afectados) {
     await addDoc(collection(db, 'notificaciones'), {

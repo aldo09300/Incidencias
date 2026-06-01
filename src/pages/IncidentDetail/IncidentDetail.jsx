@@ -32,7 +32,7 @@ function IncidentDetail() {
     load()
   }, [id])
 
-  // mantener actualizado con la lista (que viene de onSnapshot)
+  
   useEffect(() => {
     const found = incidentes.find(i => i.id === id)
     if (found) setIncidente(found)
