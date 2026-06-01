@@ -22,7 +22,7 @@ Aplicación web en React + Firebase para reportar y gestionar incidentes dentro 
 
 - React 18 + Vite
 - React Router DOM
-- Tailwind CSS
+- MUI
 - Firebase: Auth + Firestore + Storage
 - Recharts (gráficos)
 - react-to-print (impresión)
@@ -35,37 +35,9 @@ Aplicación web en React + Firebase para reportar y gestionar incidentes dentro 
 npm install
 ```
 
-### 1. Configurar Firebase
 
-1. Ve a https://console.firebase.google.com y crea un proyecto.
-2. En el dashboard, agrega una **Web app** (icono `</>`). Copia el objeto `firebaseConfig`.
-3. Activa los servicios:
-   - **Authentication** → Sign-in method → habilita "Correo electrónico/contraseña".
-   - **Firestore Database** → Modo producción (la ubicación más cercana, ej. `us-east1`).
-   - **Storage** → Modo producción.
 
-### 2. Variables de entorno
-
-Copia `.env.local.example` a `.env.local` en la raíz del proyecto y pega los valores que copiaste:
-
-```
-VITE_FB_API_KEY=...
-VITE_FB_AUTH_DOMAIN=...
-VITE_FB_PROJECT_ID=...
-VITE_FB_STORAGE_BUCKET=...
-VITE_FB_MESSAGING_SENDER_ID=...
-VITE_FB_APP_ID=...
-```
-
-### 3. Reglas de seguridad
-
-En la consola de Firebase, pega el contenido del archivo `firestore.rules` en:
-**Firestore Database → Rules → Publicar**
-
-Y el contenido de `storage.rules` en:
-**Storage → Rules → Publicar**
-
-### 4. Ejecutar
+###  Ejecutar
 
 ```bash
 npm run dev
@@ -88,57 +60,6 @@ Aparecerá el enlace "Admin" en la navbar.
 
 ---
 
-## Estructura del proyecto
-
-```
-src/
-├── components/        Componentes reutilizables
-│   ├── Navbar.jsx
-│   ├── Footer.jsx
-│   ├── ProtectedRoute.jsx
-│   ├── Loader.jsx
-│   ├── StatusBadge.jsx
-│   ├── IncidentCard.jsx
-│   └── NotificationBell.jsx
-├── context/           Contextos de React
-│   └── AuthContext.jsx
-├── hooks/             Hooks personalizados
-│   ├── useIncidents.js
-│   └── useNotifications.js
-├── pages/             Páginas/rutas
-│   ├── Landing.jsx
-│   ├── Login.jsx
-│   ├── Register.jsx
-│   ├── Dashboard.jsx
-│   ├── NewIncident.jsx
-│   ├── Incidents.jsx
-│   ├── IncidentDetail.jsx
-│   ├── Statistics.jsx
-│   ├── AdminPanel.jsx
-│   └── NotFound.jsx
-├── utils/             Constantes y helpers
-│   ├── constants.js
-│   └── helpers.js
-├── firebase/
-│   └── config.js
-├── App.jsx
-├── main.jsx
-└── index.css
-```
-
----
-
-## Despliegue en Firebase Hosting
-
-```bash
-npm install -g firebase-tools
-firebase login
-firebase init hosting   # Selecciona tu proyecto, public folder: dist, SPA: yes
-npm run build
-firebase deploy
-```
-
----
 
 ## Estructura de datos en Firestore
 
