@@ -38,7 +38,7 @@ function Register() {
       await register(nombre.trim(), email.trim(), password)
       alert("¡Registro exitoso! Bienvenido al sistema.")
     } catch (err) {
-      console.dir(err); 
+      console.dir(err);
       console.log("Texto del error:", err.toString());
       setError(errorMessage(err.code))
     } finally {
